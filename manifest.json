@@ -1,0 +1,18 @@
+{
+  "domain": "konnected_legacy",
+  "name": "Konnected.io (Legacy) Custom Component",
+  "codeowners": ["@rjlee"],
+  "config_flow": true,
+  "dependencies": ["http"],
+  "documentation": "https://github.com/rjlee/ha_legacy_konnected#readme",
+  "integration_type": "hub",
+  "iot_class": "local_push",
+  "loggers": ["konnected"],
+  "requirements": ["konnected==1.2.0"],
+  "ssdp": [
+    {
+      "manufacturer": "konnected.io"
+    }
+  ],
+  "version": "1.0.0"
+}
