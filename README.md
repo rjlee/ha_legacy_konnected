@@ -2,7 +2,7 @@
 
 Custom Home Assistant integration for Konnected Alarm Panels and sensors.
 
-This is a community-maintained fork of the original Konnected integration that was removed from Home Assistant Core. It provides full compatibility with Konnected hardware devices.
+This is a fork of the original Konnected integration that was removed from Home Assistant Core. It provides full compatibility with Konnected hardware devices still on the Konnected original firmware that haven't migrated to the newer ESPHome based firmware.
 
 ## Features
 
