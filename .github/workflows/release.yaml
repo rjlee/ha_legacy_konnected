@@ -19,6 +19,12 @@ jobs:
         run: |
           zip -r konnected_legacy.zip custom_components/
 
+      - name: Delete existing release
+        run: |
+          gh release delete v1.0.0 --yes || true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Release
         uses: ncipollo/release-action@v1
         with:
