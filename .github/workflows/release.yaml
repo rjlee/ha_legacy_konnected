@@ -9,6 +9,8 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -17,20 +19,13 @@ jobs:
         run: |
           zip -r konnected_legacy.zip custom_components/
 
-      - name: Delete old release
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh release delete v1.0.0 --yes || true
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
+      - name: Release
+        uses: ncipollo/release-action@v1
         with:
-          tag_name: v1.0.0
+          tag: v1.0.0
           name: v1.0.0
+          artifacts: konnected_legacy.zip
+          artifactContentType: application/zip
+          token: ${{ secrets.GITHUB_TOKEN }}
           draft: false
           prerelease: false
-          files: |
-            konnected_legacy.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
